@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KTZVegas</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/7.3.2/pixi.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rye&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="vegas-background">
+        <div class="spotlight"></div>
+        <div class="spotlight right"></div>
+    </div>
+
+    <div class="lang-toggle">
+        <button id="btn-lang" class="btn-flag">🇺🇸 EN</button>
+    </div>
+
+    <div class="machine-container has-bulbs">
+        <div class="bulbs-border"></div>
+
+        <div class="top-marquee">
+            <div class="siren"></div>
+            <h2 data-i18n="casino_title">KTZVegas</h2>
+        </div>
+
+        <div class="machine-screen-bezel">
+            <!-- Moeda Slot detail -->
+            <div class="coin-slot">
+                <div class="slot-hole"></div>
+                <div class="slot-light"></div>
+            </div>
+
+            <div id="slot-canvas-container" class="canvas-container"></div>
+            
+            <div class="lcd-panel">
+                <div class="lcd-box">
+                    <span id="balance-display" class="led-text">00035000</span>
+                    <span class="lcd-label vegas-font" data-i18n="credits">CREDITS</span>
+                </div>
+                <div class="lcd-box lcd-middle tooltip-container">
+                    <!-- Text Input flexível com o estilo LED -->
+                    <input id="bet-input" type="number" class="led-text led-input" value="10" min="1">
+                    <span class="lcd-label vegas-font" data-i18n="bet">BET</span>
+                    <div class="tooltip" data-i18n="bet_tooltip">Type to bet!</div>
+                </div>
+                <div class="lcd-box">
+                    <span id="win-amount" class="led-text">00000000</span>
+                    <span class="lcd-label vegas-font" data-i18n="winner_paid">WINNER PAID</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-panel">
+            <div class="button-group">
+                <button id="btn-reset" class="btn btn-white vegas-font"><span data-i18n="reset">RESET</span></button>
+                <button id="btn-bet-one" class="btn btn-red vegas-font"><span data-i18n="bet_one">BET<br>ONE</span></button>
+                <button id="btn-play-table" class="btn btn-green vegas-font"><span data-i18n="auto_spin">AUTO<br>SPIN</span></button>
+                <button id="btn-bet-max" class="btn btn-red vegas-font"><span data-i18n="bet_max">BET<br>MAX</span></button>
+            </div>
+            <button id="btn-spin" class="btn btn-spin btn-green vegas-font"><span data-i18n="spin">SPIN</span></button>
+        </div>
+        
+        <div class="machine-handle">
+            <div class="handle-base"></div>
+            <div class="handle-arm"></div>
+            <div class="handle-ball"></div>
+        </div>
+    </div>
+
+    <!-- Scripts em Ordem -->
+    <script src="store.js"></script>
+    <script src="engine.js"></script>
+    <script src="slot.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
